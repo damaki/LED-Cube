@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/forms">
+        <file>test_effect_ctrl.ui</file>
+        <file>rain_effect_ctrl.ui</file>
+        <file>ball_effect_ctrl.ui</file>
+    </qresource>
+</RCC>
