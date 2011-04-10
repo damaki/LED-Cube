@@ -1,0 +1,908 @@
+
+LED-Cube-firmware.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000002  00800200  000005ba  0000064e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000005ba  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          00000243  00800202  00800202  00000650  2**0
+                  ALLOC
+  3 .stab         00000b94  00000000  00000000  00000650  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      000008a3  00000000  00000000  000011e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 72 00 	jmp	0xe4	; 0xe4 <__ctors_end>
+   4:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+   8:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+   c:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  10:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  14:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  18:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  1c:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  20:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  24:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  28:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  2c:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  30:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  34:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  38:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  3c:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  40:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  44:	0c 94 84 01 	jmp	0x308	; 0x308 <__vector_17>
+  48:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  4c:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  50:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  54:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  58:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  5c:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  60:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  64:	0c 94 ac 00 	jmp	0x158	; 0x158 <__vector_25>
+  68:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  6c:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  70:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  74:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  78:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  7c:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  80:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  84:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  88:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  8c:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  90:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  94:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  98:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  9c:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  a0:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  a4:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  a8:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  ac:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  b0:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  b4:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  b8:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  bc:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  c0:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  c4:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  c8:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  cc:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  d0:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  d4:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  d8:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  dc:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+  e0:	0c 94 93 00 	jmp	0x126	; 0x126 <__bad_interrupt>
+
+000000e4 <__ctors_end>:
+  e4:	11 24       	eor	r1, r1
+  e6:	1f be       	out	0x3f, r1	; 63
+  e8:	cf ef       	ldi	r28, 0xFF	; 255
+  ea:	d1 e2       	ldi	r29, 0x21	; 33
+  ec:	de bf       	out	0x3e, r29	; 62
+  ee:	cd bf       	out	0x3d, r28	; 61
+  f0:	00 e0       	ldi	r16, 0x00	; 0
+  f2:	0c bf       	out	0x3c, r16	; 60
+
+000000f4 <__do_copy_data>:
+  f4:	12 e0       	ldi	r17, 0x02	; 2
+  f6:	a0 e0       	ldi	r26, 0x00	; 0
+  f8:	b2 e0       	ldi	r27, 0x02	; 2
+  fa:	ea eb       	ldi	r30, 0xBA	; 186
+  fc:	f5 e0       	ldi	r31, 0x05	; 5
+  fe:	00 e0       	ldi	r16, 0x00	; 0
+ 100:	0b bf       	out	0x3b, r16	; 59
+ 102:	02 c0       	rjmp	.+4      	; 0x108 <__do_copy_data+0x14>
+ 104:	07 90       	elpm	r0, Z+
+ 106:	0d 92       	st	X+, r0
+ 108:	a2 30       	cpi	r26, 0x02	; 2
+ 10a:	b1 07       	cpc	r27, r17
+ 10c:	d9 f7       	brne	.-10     	; 0x104 <__do_copy_data+0x10>
+
+0000010e <__do_clear_bss>:
+ 10e:	14 e0       	ldi	r17, 0x04	; 4
+ 110:	a2 e0       	ldi	r26, 0x02	; 2
+ 112:	b2 e0       	ldi	r27, 0x02	; 2
+ 114:	01 c0       	rjmp	.+2      	; 0x118 <.do_clear_bss_start>
+
+00000116 <.do_clear_bss_loop>:
+ 116:	1d 92       	st	X+, r1
+
+00000118 <.do_clear_bss_start>:
+ 118:	a5 34       	cpi	r26, 0x45	; 69
+ 11a:	b1 07       	cpc	r27, r17
+ 11c:	e1 f7       	brne	.-8      	; 0x116 <.do_clear_bss_loop>
+ 11e:	0e 94 d1 02 	call	0x5a2	; 0x5a2 <main>
+ 122:	0c 94 db 02 	jmp	0x5b6	; 0x5b6 <_exit>
+
+00000126 <__bad_interrupt>:
+ 126:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000012a <comms_init>:
+ * cube frames.
+ *
+ * @author Daniel King
+ */
+void comms_init()
+{
+ 12a:	df 93       	push	r29
+ 12c:	cf 93       	push	r28
+ 12e:	cd b7       	in	r28, 0x3d	; 61
+ 130:	de b7       	in	r29, 0x3e	; 62
+    g_state = STATE_IDLE;
+ 132:	10 92 02 02 	sts	0x0202, r1
+
+    /* Initialise the UART */
+    UBRR0  = (FOSC/(16*BAUD_RATE))-1;
+ 136:	e4 ec       	ldi	r30, 0xC4	; 196
+ 138:	f0 e0       	ldi	r31, 0x00	; 0
+ 13a:	87 e0       	ldi	r24, 0x07	; 7
+ 13c:	90 e0       	ldi	r25, 0x00	; 0
+ 13e:	91 83       	std	Z+1, r25	; 0x01
+ 140:	80 83       	st	Z, r24
+    UCSR0C = (0x3 << 1);    /* 8 data bits */
+ 142:	e2 ec       	ldi	r30, 0xC2	; 194
+ 144:	f0 e0       	ldi	r31, 0x00	; 0
+ 146:	86 e0       	ldi	r24, 0x06	; 6
+ 148:	80 83       	st	Z, r24
+    UCSR0B = (1 << RXEN0) | /* Enable Rx */
+ 14a:	e1 ec       	ldi	r30, 0xC1	; 193
+ 14c:	f0 e0       	ldi	r31, 0x00	; 0
+ 14e:	80 e9       	ldi	r24, 0x90	; 144
+ 150:	80 83       	st	Z, r24
+             (1 << RXCIE0); /* Enable Interrupt on Rx*/
+}
+ 152:	cf 91       	pop	r28
+ 154:	df 91       	pop	r29
+ 156:	08 95       	ret
+
+00000158 <__vector_25>:
+ *
+ * @author Daniel King
+ */
+ISR(USART0_RX_vect, ISR_NAKED)
+{
+    if ((UCSR0A & 0x1C) == 0) /* Check if any reception errors have occurred */
+ 158:	e0 ec       	ldi	r30, 0xC0	; 192
+ 15a:	f0 e0       	ldi	r31, 0x00	; 0
+ 15c:	80 81       	ld	r24, Z
+ 15e:	88 2f       	mov	r24, r24
+ 160:	90 e0       	ldi	r25, 0x00	; 0
+ 162:	8c 71       	andi	r24, 0x1C	; 28
+ 164:	90 70       	andi	r25, 0x00	; 0
+ 166:	00 97       	sbiw	r24, 0x00	; 0
+ 168:	09 f0       	breq	.+2      	; 0x16c <__vector_25+0x14>
+ 16a:	47 c0       	rjmp	.+142    	; 0x1fa <__vector_25+0xa2>
+    {
+        const uint8_t byte = UDR0;
+ 16c:	e6 ec       	ldi	r30, 0xC6	; 198
+ 16e:	f0 e0       	ldi	r31, 0x00	; 0
+ 170:	80 81       	ld	r24, Z
+ 172:	89 83       	std	Y+1, r24	; 0x01
+
+        if (0xFF == byte) /* Have we received the start character? */
+ 174:	89 81       	ldd	r24, Y+1	; 0x01
+ 176:	8f 3f       	cpi	r24, 0xFF	; 255
+ 178:	41 f4       	brne	.+16     	; 0x18a <__vector_25+0x32>
+        {
+            g_state = STATE_RECEIVING;
+ 17a:	81 e0       	ldi	r24, 0x01	; 1
+ 17c:	80 93 02 02 	sts	0x0202, r24
+            g_frame_count = 0;
+ 180:	10 92 04 02 	sts	0x0204, r1
+ 184:	10 92 03 02 	sts	0x0203, r1
+ 188:	3e c0       	rjmp	.+124    	; 0x206 <__vector_25+0xae>
+        }
+        else if (STATE_RECEIVING == g_state)
+ 18a:	80 91 02 02 	lds	r24, 0x0202
+ 18e:	81 30       	cpi	r24, 0x01	; 1
+ 190:	d1 f5       	brne	.+116    	; 0x206 <__vector_25+0xae>
+        {
+            /* The received byte has 2 LEDs worth of data packed into it */
+            ((uint8_t*)g_cube)[g_frame_count++] = byte & 0x0F;
+ 192:	85 e4       	ldi	r24, 0x45	; 69
+ 194:	92 e0       	ldi	r25, 0x02	; 2
+ 196:	20 91 03 02 	lds	r18, 0x0203
+ 19a:	30 91 04 02 	lds	r19, 0x0204
+ 19e:	fc 01       	movw	r30, r24
+ 1a0:	e2 0f       	add	r30, r18
+ 1a2:	f3 1f       	adc	r31, r19
+ 1a4:	89 81       	ldd	r24, Y+1	; 0x01
+ 1a6:	8f 70       	andi	r24, 0x0F	; 15
+ 1a8:	80 83       	st	Z, r24
+ 1aa:	c9 01       	movw	r24, r18
+ 1ac:	01 96       	adiw	r24, 0x01	; 1
+ 1ae:	90 93 04 02 	sts	0x0204, r25
+ 1b2:	80 93 03 02 	sts	0x0203, r24
+            ((uint8_t*)g_cube)[g_frame_count++] = (byte & 0xF0) >> 4;
+ 1b6:	85 e4       	ldi	r24, 0x45	; 69
+ 1b8:	92 e0       	ldi	r25, 0x02	; 2
+ 1ba:	20 91 03 02 	lds	r18, 0x0203
+ 1be:	30 91 04 02 	lds	r19, 0x0204
+ 1c2:	fc 01       	movw	r30, r24
+ 1c4:	e2 0f       	add	r30, r18
+ 1c6:	f3 1f       	adc	r31, r19
+ 1c8:	89 81       	ldd	r24, Y+1	; 0x01
+ 1ca:	82 95       	swap	r24
+ 1cc:	8f 70       	andi	r24, 0x0F	; 15
+ 1ce:	80 83       	st	Z, r24
+ 1d0:	c9 01       	movw	r24, r18
+ 1d2:	01 96       	adiw	r24, 0x01	; 1
+ 1d4:	90 93 04 02 	sts	0x0204, r25
+ 1d8:	80 93 03 02 	sts	0x0203, r24
+
+            if (g_frame_count >= 512) /* Have we updated the whole cube? */
+ 1dc:	80 91 03 02 	lds	r24, 0x0203
+ 1e0:	90 91 04 02 	lds	r25, 0x0204
+ 1e4:	22 e0       	ldi	r18, 0x02	; 2
+ 1e6:	80 30       	cpi	r24, 0x00	; 0
+ 1e8:	92 07       	cpc	r25, r18
+ 1ea:	68 f0       	brcs	.+26     	; 0x206 <__vector_25+0xae>
+            {
+                /* Wait for the next start character */
+                g_state = STATE_IDLE;
+ 1ec:	10 92 02 02 	sts	0x0202, r1
+                g_frame_count = 0;
+ 1f0:	10 92 04 02 	sts	0x0204, r1
+ 1f4:	10 92 03 02 	sts	0x0203, r1
+ 1f8:	06 c0       	rjmp	.+12     	; 0x206 <__vector_25+0xae>
+        }
+    }
+    else
+    {
+        /* Frame error, data overrun, or parity error - drop the current frame & wait for the next one */
+        g_state = STATE_IDLE;
+ 1fa:	10 92 02 02 	sts	0x0202, r1
+        g_frame_count = 0;
+ 1fe:	10 92 04 02 	sts	0x0204, r1
+ 202:	10 92 03 02 	sts	0x0203, r1
+    }
+
+    /* Since this ISR is ISR_NAKED, we need to explicitly return from the ISR ourselves */
+    reti();
+ 206:	18 95       	reti
+
+00000208 <cube_init>:
+
+/**
+ * \brief Initialises the cube and
+ */
+void cube_init()
+{
+ 208:	df 93       	push	r29
+ 20a:	cf 93       	push	r28
+ 20c:	00 d0       	rcall	.+0      	; 0x20e <cube_init+0x6>
+ 20e:	cd b7       	in	r28, 0x3d	; 61
+ 210:	de b7       	in	r29, 0x3e	; 62
+    /* Initialise the hardware/pins */
+    DDRK  = 0xFF; /* 8-bit data bus pins initialised to output */
+ 212:	e7 e0       	ldi	r30, 0x07	; 7
+ 214:	f1 e0       	ldi	r31, 0x01	; 1
+ 216:	8f ef       	ldi	r24, 0xFF	; 255
+ 218:	80 83       	st	Z, r24
+    PORTK = 0;    /* Set data bus to 0 */
+ 21a:	e8 e0       	ldi	r30, 0x08	; 8
+ 21c:	f1 e0       	ldi	r31, 0x01	; 1
+ 21e:	10 82       	st	Z, r1
+    DDRA  = 0xFF; /* Set layer pins to output */
+ 220:	e1 e2       	ldi	r30, 0x21	; 33
+ 222:	f0 e0       	ldi	r31, 0x00	; 0
+ 224:	8f ef       	ldi	r24, 0xFF	; 255
+ 226:	80 83       	st	Z, r24
+    PORTA = 0;    /* Turn off all layers */
+ 228:	e2 e2       	ldi	r30, 0x22	; 34
+ 22a:	f0 e0       	ldi	r31, 0x00	; 0
+ 22c:	10 82       	st	Z, r1
+    DDRF  = 0xFF; /* Set chip select pins to output */
+ 22e:	e0 e3       	ldi	r30, 0x30	; 48
+ 230:	f0 e0       	ldi	r31, 0x00	; 0
+ 232:	8f ef       	ldi	r24, 0xFF	; 255
+ 234:	80 83       	st	Z, r24
+    PORTF = 0;    /* Chip select LOW for all chips */
+ 236:	e1 e3       	ldi	r30, 0x31	; 49
+ 238:	f0 e0       	ldi	r31, 0x00	; 0
+ 23a:	10 82       	st	Z, r1
+    DDRE  = (1 << PE4); /* Set the Output Enable line to output */
+ 23c:	ed e2       	ldi	r30, 0x2D	; 45
+ 23e:	f0 e0       	ldi	r31, 0x00	; 0
+ 240:	80 e1       	ldi	r24, 0x10	; 16
+ 242:	80 83       	st	Z, r24
+    PORTE = (1 << PE4); /* Set Output Enable to HIGH */
+ 244:	ee e2       	ldi	r30, 0x2E	; 46
+ 246:	f0 e0       	ldi	r31, 0x00	; 0
+ 248:	80 e1       	ldi	r24, 0x10	; 16
+ 24a:	80 83       	st	Z, r24
+    PORTE = 0; /* Set Output Enable to LOW */
+ 24c:	ee e2       	ldi	r30, 0x2E	; 46
+ 24e:	f0 e0       	ldi	r31, 0x00	; 0
+ 250:	10 82       	st	Z, r1
+
+    PORTF = 0xFF; /* Pulse all chip selects to latch in 0 into the chips */
+ 252:	e1 e3       	ldi	r30, 0x31	; 49
+ 254:	f0 e0       	ldi	r31, 0x00	; 0
+ 256:	8f ef       	ldi	r24, 0xFF	; 255
+ 258:	80 83       	st	Z, r24
+    PORTF = 0;
+ 25a:	e1 e3       	ldi	r30, 0x31	; 49
+ 25c:	f0 e0       	ldi	r31, 0x00	; 0
+ 25e:	10 82       	st	Z, r1
+
+    /* Initialise the cube */
+    for (uint8_t x = 0; x < CUBE_SIZE; ++x)
+ 260:	1b 82       	std	Y+3, r1	; 0x03
+ 262:	31 c0       	rjmp	.+98     	; 0x2c6 <cube_init+0xbe>
+    {
+        for (uint8_t y = 0; y < CUBE_SIZE; ++y)
+ 264:	1a 82       	std	Y+2, r1	; 0x02
+ 266:	29 c0       	rjmp	.+82     	; 0x2ba <cube_init+0xb2>
+        {
+            for (uint8_t z = 0; z < CUBE_SIZE; ++z)
+ 268:	19 82       	std	Y+1, r1	; 0x01
+ 26a:	21 c0       	rjmp	.+66     	; 0x2ae <cube_init+0xa6>
+            {
+                g_cube[x][y][z] = 0;
+ 26c:	8b 81       	ldd	r24, Y+3	; 0x03
+ 26e:	68 2f       	mov	r22, r24
+ 270:	70 e0       	ldi	r23, 0x00	; 0
+ 272:	8a 81       	ldd	r24, Y+2	; 0x02
+ 274:	28 2f       	mov	r18, r24
+ 276:	30 e0       	ldi	r19, 0x00	; 0
+ 278:	89 81       	ldd	r24, Y+1	; 0x01
+ 27a:	48 2f       	mov	r20, r24
+ 27c:	50 e0       	ldi	r21, 0x00	; 0
+ 27e:	cb 01       	movw	r24, r22
+ 280:	88 0f       	add	r24, r24
+ 282:	99 1f       	adc	r25, r25
+ 284:	88 0f       	add	r24, r24
+ 286:	99 1f       	adc	r25, r25
+ 288:	88 0f       	add	r24, r24
+ 28a:	99 1f       	adc	r25, r25
+ 28c:	82 0f       	add	r24, r18
+ 28e:	93 1f       	adc	r25, r19
+ 290:	88 0f       	add	r24, r24
+ 292:	99 1f       	adc	r25, r25
+ 294:	88 0f       	add	r24, r24
+ 296:	99 1f       	adc	r25, r25
+ 298:	88 0f       	add	r24, r24
+ 29a:	99 1f       	adc	r25, r25
+ 29c:	84 0f       	add	r24, r20
+ 29e:	95 1f       	adc	r25, r21
+ 2a0:	fc 01       	movw	r30, r24
+ 2a2:	eb 5b       	subi	r30, 0xBB	; 187
+ 2a4:	fd 4f       	sbci	r31, 0xFD	; 253
+ 2a6:	10 82       	st	Z, r1
+    /* Initialise the cube */
+    for (uint8_t x = 0; x < CUBE_SIZE; ++x)
+    {
+        for (uint8_t y = 0; y < CUBE_SIZE; ++y)
+        {
+            for (uint8_t z = 0; z < CUBE_SIZE; ++z)
+ 2a8:	89 81       	ldd	r24, Y+1	; 0x01
+ 2aa:	8f 5f       	subi	r24, 0xFF	; 255
+ 2ac:	89 83       	std	Y+1, r24	; 0x01
+ 2ae:	89 81       	ldd	r24, Y+1	; 0x01
+ 2b0:	88 30       	cpi	r24, 0x08	; 8
+ 2b2:	e0 f2       	brcs	.-72     	; 0x26c <cube_init+0x64>
+    PORTF = 0;
+
+    /* Initialise the cube */
+    for (uint8_t x = 0; x < CUBE_SIZE; ++x)
+    {
+        for (uint8_t y = 0; y < CUBE_SIZE; ++y)
+ 2b4:	8a 81       	ldd	r24, Y+2	; 0x02
+ 2b6:	8f 5f       	subi	r24, 0xFF	; 255
+ 2b8:	8a 83       	std	Y+2, r24	; 0x02
+ 2ba:	8a 81       	ldd	r24, Y+2	; 0x02
+ 2bc:	88 30       	cpi	r24, 0x08	; 8
+ 2be:	a0 f2       	brcs	.-88     	; 0x268 <cube_init+0x60>
+
+    PORTF = 0xFF; /* Pulse all chip selects to latch in 0 into the chips */
+    PORTF = 0;
+
+    /* Initialise the cube */
+    for (uint8_t x = 0; x < CUBE_SIZE; ++x)
+ 2c0:	8b 81       	ldd	r24, Y+3	; 0x03
+ 2c2:	8f 5f       	subi	r24, 0xFF	; 255
+ 2c4:	8b 83       	std	Y+3, r24	; 0x03
+ 2c6:	8b 81       	ldd	r24, Y+3	; 0x03
+ 2c8:	88 30       	cpi	r24, 0x08	; 8
+ 2ca:	60 f2       	brcs	.-104    	; 0x264 <cube_init+0x5c>
+            }
+        }
+    }
+
+    /* Timer 1 - Cube update timer */
+    TIMSK1 = (1U << OCIE1A); /* Output Capture Interrupt Enable */
+ 2cc:	ef e6       	ldi	r30, 0x6F	; 111
+ 2ce:	f0 e0       	ldi	r31, 0x00	; 0
+ 2d0:	82 e0       	ldi	r24, 0x02	; 2
+ 2d2:	80 83       	st	Z, r24
+    OCR1A  = CPU_SPEED/(REFRESH_RATE_HZ*CUBE_SIZE*MAX_BRIGHTNESS); /* Set the max timer value */
+ 2d4:	e8 e8       	ldi	r30, 0x88	; 136
+ 2d6:	f0 e0       	ldi	r31, 0x00	; 0
+ 2d8:	84 e9       	ldi	r24, 0x94	; 148
+ 2da:	95 e0       	ldi	r25, 0x05	; 5
+ 2dc:	91 83       	std	Z+1, r25	; 0x01
+ 2de:	80 83       	st	Z, r24
+    ICR1   = OCR1A + 1U;        /* Set counter TOP value */
+ 2e0:	a6 e8       	ldi	r26, 0x86	; 134
+ 2e2:	b0 e0       	ldi	r27, 0x00	; 0
+ 2e4:	e8 e8       	ldi	r30, 0x88	; 136
+ 2e6:	f0 e0       	ldi	r31, 0x00	; 0
+ 2e8:	80 81       	ld	r24, Z
+ 2ea:	91 81       	ldd	r25, Z+1	; 0x01
+ 2ec:	01 96       	adiw	r24, 0x01	; 1
+ 2ee:	11 96       	adiw	r26, 0x01	; 1
+ 2f0:	9c 93       	st	X, r25
+ 2f2:	8e 93       	st	-X, r24
+    TCCR1B = (1U << WGM12) |
+ 2f4:	e1 e8       	ldi	r30, 0x81	; 129
+ 2f6:	f0 e0       	ldi	r31, 0x00	; 0
+ 2f8:	89 e0       	ldi	r24, 0x09	; 9
+ 2fa:	80 83       	st	Z, r24
+             (1U << CS10);      /* Start timer, with no prescaling (16MHz)*/
+}
+ 2fc:	0f 90       	pop	r0
+ 2fe:	0f 90       	pop	r0
+ 300:	0f 90       	pop	r0
+ 302:	cf 91       	pop	r28
+ 304:	df 91       	pop	r29
+ 306:	08 95       	ret
+
+00000308 <__vector_17>:
+
+ISR(TIMER1_COMPA_vect, ISR_NAKED)
+{
+    if (g_counter >= (MAX_BRIGHTNESS - 1)) /* Finished updating the current layer? */
+ 308:	80 91 01 02 	lds	r24, 0x0201
+ 30c:	8d 30       	cpi	r24, 0x0D	; 13
+ 30e:	08 f4       	brcc	.+2      	; 0x312 <__vector_17+0xa>
+ 310:	ca c0       	rjmp	.+404    	; 0x4a6 <__vector_17+0x19e>
+    {
+        g_counter = 0;
+ 312:	10 92 01 02 	sts	0x0201, r1
+
+        /* Go to the next layer */
+        ++g_layer;
+ 316:	80 91 00 02 	lds	r24, 0x0200
+ 31a:	8f 5f       	subi	r24, 0xFF	; 255
+ 31c:	80 93 00 02 	sts	0x0200, r24
+        if (g_layer >= CUBE_SIZE) /* Gone over the top of the cube? */
+ 320:	80 91 00 02 	lds	r24, 0x0200
+ 324:	88 30       	cpi	r24, 0x08	; 8
+ 326:	10 f0       	brcs	.+4      	; 0x32c <__vector_17+0x24>
+        {
+            g_layer = 0;
+ 328:	10 92 00 02 	sts	0x0200, r1
+        }
+
+        /* Turn off all LEDs while we change layers */
+        PORTA = 0;           /* Turn off all layers */
+ 32c:	e2 e2       	ldi	r30, 0x22	; 34
+ 32e:	f0 e0       	ldi	r31, 0x00	; 0
+ 330:	10 82       	st	Z, r1
+        PORTE = (1 << PE4);  /* Set Output Enable to HIGH while we latch data into the bus */
+ 332:	ee e2       	ldi	r30, 0x2E	; 46
+ 334:	f0 e0       	ldi	r31, 0x00	; 0
+ 336:	80 e1       	ldi	r24, 0x10	; 16
+ 338:	80 83       	st	Z, r24
+
+        /* Go through each row in the layer */
+        for (uint8_t x = 0; x < CUBE_SIZE; ++x)
+ 33a:	1e 82       	std	Y+6, r1	; 0x06
+ 33c:	9a c0       	rjmp	.+308    	; 0x472 <__vector_17+0x16a>
+        {
+            uint8_t row_bitmask = 0;
+ 33e:	1d 82       	std	Y+5, r1	; 0x05
+
+            /* Go through each LED in the row */
+            for (uint8_t z = 0; z < CUBE_SIZE; ++z)
+ 340:	1c 82       	std	Y+4, r1	; 0x04
+ 342:	7b c0       	rjmp	.+246    	; 0x43a <__vector_17+0x132>
+            {
+                g_curr_layer[x][z] = g_cube[x][g_layer][z];
+ 344:	8e 81       	ldd	r24, Y+6	; 0x06
+ 346:	a8 2f       	mov	r26, r24
+ 348:	b0 e0       	ldi	r27, 0x00	; 0
+ 34a:	8c 81       	ldd	r24, Y+4	; 0x04
+ 34c:	08 2f       	mov	r16, r24
+ 34e:	10 e0       	ldi	r17, 0x00	; 0
+ 350:	8e 81       	ldd	r24, Y+6	; 0x06
+ 352:	68 2f       	mov	r22, r24
+ 354:	70 e0       	ldi	r23, 0x00	; 0
+ 356:	80 91 00 02 	lds	r24, 0x0200
+ 35a:	28 2f       	mov	r18, r24
+ 35c:	30 e0       	ldi	r19, 0x00	; 0
+ 35e:	8c 81       	ldd	r24, Y+4	; 0x04
+ 360:	48 2f       	mov	r20, r24
+ 362:	50 e0       	ldi	r21, 0x00	; 0
+ 364:	cb 01       	movw	r24, r22
+ 366:	88 0f       	add	r24, r24
+ 368:	99 1f       	adc	r25, r25
+ 36a:	88 0f       	add	r24, r24
+ 36c:	99 1f       	adc	r25, r25
+ 36e:	88 0f       	add	r24, r24
+ 370:	99 1f       	adc	r25, r25
+ 372:	82 0f       	add	r24, r18
+ 374:	93 1f       	adc	r25, r19
+ 376:	88 0f       	add	r24, r24
+ 378:	99 1f       	adc	r25, r25
+ 37a:	88 0f       	add	r24, r24
+ 37c:	99 1f       	adc	r25, r25
+ 37e:	88 0f       	add	r24, r24
+ 380:	99 1f       	adc	r25, r25
+ 382:	84 0f       	add	r24, r20
+ 384:	95 1f       	adc	r25, r21
+ 386:	fc 01       	movw	r30, r24
+ 388:	eb 5b       	subi	r30, 0xBB	; 187
+ 38a:	fd 4f       	sbci	r31, 0xFD	; 253
+ 38c:	20 81       	ld	r18, Z
+ 38e:	cd 01       	movw	r24, r26
+ 390:	88 0f       	add	r24, r24
+ 392:	99 1f       	adc	r25, r25
+ 394:	88 0f       	add	r24, r24
+ 396:	99 1f       	adc	r25, r25
+ 398:	88 0f       	add	r24, r24
+ 39a:	99 1f       	adc	r25, r25
+ 39c:	80 0f       	add	r24, r16
+ 39e:	91 1f       	adc	r25, r17
+ 3a0:	fc 01       	movw	r30, r24
+ 3a2:	eb 5f       	subi	r30, 0xFB	; 251
+ 3a4:	fd 4f       	sbci	r31, 0xFD	; 253
+ 3a6:	20 83       	st	Z, r18
+                if (g_curr_layer[x][z] > 0)
+ 3a8:	8e 81       	ldd	r24, Y+6	; 0x06
+ 3aa:	48 2f       	mov	r20, r24
+ 3ac:	50 e0       	ldi	r21, 0x00	; 0
+ 3ae:	8c 81       	ldd	r24, Y+4	; 0x04
+ 3b0:	28 2f       	mov	r18, r24
+ 3b2:	30 e0       	ldi	r19, 0x00	; 0
+ 3b4:	ca 01       	movw	r24, r20
+ 3b6:	88 0f       	add	r24, r24
+ 3b8:	99 1f       	adc	r25, r25
+ 3ba:	88 0f       	add	r24, r24
+ 3bc:	99 1f       	adc	r25, r25
+ 3be:	88 0f       	add	r24, r24
+ 3c0:	99 1f       	adc	r25, r25
+ 3c2:	82 0f       	add	r24, r18
+ 3c4:	93 1f       	adc	r25, r19
+ 3c6:	fc 01       	movw	r30, r24
+ 3c8:	eb 5f       	subi	r30, 0xFB	; 251
+ 3ca:	fd 4f       	sbci	r31, 0xFD	; 253
+ 3cc:	80 81       	ld	r24, Z
+ 3ce:	88 23       	and	r24, r24
+ 3d0:	89 f1       	breq	.+98     	; 0x434 <__vector_17+0x12c>
+                {
+                    --g_curr_layer[x][z];
+ 3d2:	8e 81       	ldd	r24, Y+6	; 0x06
+ 3d4:	48 2f       	mov	r20, r24
+ 3d6:	50 e0       	ldi	r21, 0x00	; 0
+ 3d8:	8c 81       	ldd	r24, Y+4	; 0x04
+ 3da:	28 2f       	mov	r18, r24
+ 3dc:	30 e0       	ldi	r19, 0x00	; 0
+ 3de:	ca 01       	movw	r24, r20
+ 3e0:	88 0f       	add	r24, r24
+ 3e2:	99 1f       	adc	r25, r25
+ 3e4:	88 0f       	add	r24, r24
+ 3e6:	99 1f       	adc	r25, r25
+ 3e8:	88 0f       	add	r24, r24
+ 3ea:	99 1f       	adc	r25, r25
+ 3ec:	82 0f       	add	r24, r18
+ 3ee:	93 1f       	adc	r25, r19
+ 3f0:	fc 01       	movw	r30, r24
+ 3f2:	eb 5f       	subi	r30, 0xFB	; 251
+ 3f4:	fd 4f       	sbci	r31, 0xFD	; 253
+ 3f6:	80 81       	ld	r24, Z
+ 3f8:	68 2f       	mov	r22, r24
+ 3fa:	61 50       	subi	r22, 0x01	; 1
+ 3fc:	ca 01       	movw	r24, r20
+ 3fe:	88 0f       	add	r24, r24
+ 400:	99 1f       	adc	r25, r25
+ 402:	88 0f       	add	r24, r24
+ 404:	99 1f       	adc	r25, r25
+ 406:	88 0f       	add	r24, r24
+ 408:	99 1f       	adc	r25, r25
+ 40a:	82 0f       	add	r24, r18
+ 40c:	93 1f       	adc	r25, r19
+ 40e:	fc 01       	movw	r30, r24
+ 410:	eb 5f       	subi	r30, 0xFB	; 251
+ 412:	fd 4f       	sbci	r31, 0xFD	; 253
+ 414:	60 83       	st	Z, r22
+                    row_bitmask |= (1 << z);
+ 416:	8c 81       	ldd	r24, Y+4	; 0x04
+ 418:	28 2f       	mov	r18, r24
+ 41a:	30 e0       	ldi	r19, 0x00	; 0
+ 41c:	81 e0       	ldi	r24, 0x01	; 1
+ 41e:	90 e0       	ldi	r25, 0x00	; 0
+ 420:	02 2e       	mov	r0, r18
+ 422:	02 c0       	rjmp	.+4      	; 0x428 <__vector_17+0x120>
+ 424:	88 0f       	add	r24, r24
+ 426:	99 1f       	adc	r25, r25
+ 428:	0a 94       	dec	r0
+ 42a:	e2 f7       	brpl	.-8      	; 0x424 <__vector_17+0x11c>
+ 42c:	98 2f       	mov	r25, r24
+ 42e:	8d 81       	ldd	r24, Y+5	; 0x05
+ 430:	89 2b       	or	r24, r25
+ 432:	8d 83       	std	Y+5, r24	; 0x05
+        for (uint8_t x = 0; x < CUBE_SIZE; ++x)
+        {
+            uint8_t row_bitmask = 0;
+
+            /* Go through each LED in the row */
+            for (uint8_t z = 0; z < CUBE_SIZE; ++z)
+ 434:	8c 81       	ldd	r24, Y+4	; 0x04
+ 436:	8f 5f       	subi	r24, 0xFF	; 255
+ 438:	8c 83       	std	Y+4, r24	; 0x04
+ 43a:	8c 81       	ldd	r24, Y+4	; 0x04
+ 43c:	88 30       	cpi	r24, 0x08	; 8
+ 43e:	08 f4       	brcc	.+2      	; 0x442 <__vector_17+0x13a>
+ 440:	81 cf       	rjmp	.-254    	; 0x344 <__vector_17+0x3c>
+                    --g_curr_layer[x][z];
+                    row_bitmask |= (1 << z);
+                }
+            }
+
+            PORTK = row_bitmask; /* Put LED states to data bus */
+ 442:	e8 e0       	ldi	r30, 0x08	; 8
+ 444:	f1 e0       	ldi	r31, 0x01	; 1
+ 446:	8d 81       	ldd	r24, Y+5	; 0x05
+ 448:	80 83       	st	Z, r24
+            PORTF = (1 << x);    /* Set chip select for this row to HIGH to latch in the data on the bus */
+ 44a:	e1 e3       	ldi	r30, 0x31	; 49
+ 44c:	f0 e0       	ldi	r31, 0x00	; 0
+ 44e:	8e 81       	ldd	r24, Y+6	; 0x06
+ 450:	28 2f       	mov	r18, r24
+ 452:	30 e0       	ldi	r19, 0x00	; 0
+ 454:	81 e0       	ldi	r24, 0x01	; 1
+ 456:	90 e0       	ldi	r25, 0x00	; 0
+ 458:	02 2e       	mov	r0, r18
+ 45a:	02 c0       	rjmp	.+4      	; 0x460 <__vector_17+0x158>
+ 45c:	88 0f       	add	r24, r24
+ 45e:	99 1f       	adc	r25, r25
+ 460:	0a 94       	dec	r0
+ 462:	e2 f7       	brpl	.-8      	; 0x45c <__vector_17+0x154>
+ 464:	80 83       	st	Z, r24
+            PORTF = 0;           /* Data has been latched - deselect the chip */
+ 466:	e1 e3       	ldi	r30, 0x31	; 49
+ 468:	f0 e0       	ldi	r31, 0x00	; 0
+ 46a:	10 82       	st	Z, r1
+        /* Turn off all LEDs while we change layers */
+        PORTA = 0;           /* Turn off all layers */
+        PORTE = (1 << PE4);  /* Set Output Enable to HIGH while we latch data into the bus */
+
+        /* Go through each row in the layer */
+        for (uint8_t x = 0; x < CUBE_SIZE; ++x)
+ 46c:	8e 81       	ldd	r24, Y+6	; 0x06
+ 46e:	8f 5f       	subi	r24, 0xFF	; 255
+ 470:	8e 83       	std	Y+6, r24	; 0x06
+ 472:	8e 81       	ldd	r24, Y+6	; 0x06
+ 474:	88 30       	cpi	r24, 0x08	; 8
+ 476:	08 f4       	brcc	.+2      	; 0x47a <__vector_17+0x172>
+ 478:	62 cf       	rjmp	.-316    	; 0x33e <__vector_17+0x36>
+            PORTK = row_bitmask; /* Put LED states to data bus */
+            PORTF = (1 << x);    /* Set chip select for this row to HIGH to latch in the data on the bus */
+            PORTF = 0;           /* Data has been latched - deselect the chip */
+        }
+
+        PORTK = 0;           /* Unset the bus */
+ 47a:	e8 e0       	ldi	r30, 0x08	; 8
+ 47c:	f1 e0       	ldi	r31, 0x01	; 1
+ 47e:	10 82       	st	Z, r1
+        PORTE = 0;           /* Enable the output */
+ 480:	ee e2       	ldi	r30, 0x2E	; 46
+ 482:	f0 e0       	ldi	r31, 0x00	; 0
+ 484:	10 82       	st	Z, r1
+        PORTA = (1 << g_layer); /* Turn on the current layer only */
+ 486:	e2 e2       	ldi	r30, 0x22	; 34
+ 488:	f0 e0       	ldi	r31, 0x00	; 0
+ 48a:	80 91 00 02 	lds	r24, 0x0200
+ 48e:	28 2f       	mov	r18, r24
+ 490:	30 e0       	ldi	r19, 0x00	; 0
+ 492:	81 e0       	ldi	r24, 0x01	; 1
+ 494:	90 e0       	ldi	r25, 0x00	; 0
+ 496:	02 2e       	mov	r0, r18
+ 498:	02 c0       	rjmp	.+4      	; 0x49e <__vector_17+0x196>
+ 49a:	88 0f       	add	r24, r24
+ 49c:	99 1f       	adc	r25, r25
+ 49e:	0a 94       	dec	r0
+ 4a0:	e2 f7       	brpl	.-8      	; 0x49a <__vector_17+0x192>
+ 4a2:	80 83       	st	Z, r24
+ 4a4:	7d c0       	rjmp	.+250    	; 0x5a0 <__vector_17+0x298>
+    }
+    else /* Update the current layer */
+    {
+        ++g_counter;
+ 4a6:	80 91 01 02 	lds	r24, 0x0201
+ 4aa:	8f 5f       	subi	r24, 0xFF	; 255
+ 4ac:	80 93 01 02 	sts	0x0201, r24
+
+        /* Go through each row/latch chip */
+        PORTE = (1 << PE4);  /* Set Output Enable to HIGH while we latch data into the bus */
+ 4b0:	ee e2       	ldi	r30, 0x2E	; 46
+ 4b2:	f0 e0       	ldi	r31, 0x00	; 0
+ 4b4:	80 e1       	ldi	r24, 0x10	; 16
+ 4b6:	80 83       	st	Z, r24
+        for (uint8_t x = 0; x < CUBE_SIZE; ++x)
+ 4b8:	1b 82       	std	Y+3, r1	; 0x03
+ 4ba:	68 c0       	rjmp	.+208    	; 0x58c <__vector_17+0x284>
+        {
+            uint8_t row_bitmask = 0;
+ 4bc:	1a 82       	std	Y+2, r1	; 0x02
+            for (uint8_t z = 0; z < CUBE_SIZE; ++z)
+ 4be:	19 82       	std	Y+1, r1	; 0x01
+ 4c0:	49 c0       	rjmp	.+146    	; 0x554 <__vector_17+0x24c>
+            {
+                if (g_curr_layer[x][z] > 0) /* Is the LED on? */
+ 4c2:	8b 81       	ldd	r24, Y+3	; 0x03
+ 4c4:	48 2f       	mov	r20, r24
+ 4c6:	50 e0       	ldi	r21, 0x00	; 0
+ 4c8:	89 81       	ldd	r24, Y+1	; 0x01
+ 4ca:	28 2f       	mov	r18, r24
+ 4cc:	30 e0       	ldi	r19, 0x00	; 0
+ 4ce:	ca 01       	movw	r24, r20
+ 4d0:	88 0f       	add	r24, r24
+ 4d2:	99 1f       	adc	r25, r25
+ 4d4:	88 0f       	add	r24, r24
+ 4d6:	99 1f       	adc	r25, r25
+ 4d8:	88 0f       	add	r24, r24
+ 4da:	99 1f       	adc	r25, r25
+ 4dc:	82 0f       	add	r24, r18
+ 4de:	93 1f       	adc	r25, r19
+ 4e0:	fc 01       	movw	r30, r24
+ 4e2:	eb 5f       	subi	r30, 0xFB	; 251
+ 4e4:	fd 4f       	sbci	r31, 0xFD	; 253
+ 4e6:	80 81       	ld	r24, Z
+ 4e8:	88 23       	and	r24, r24
+ 4ea:	89 f1       	breq	.+98     	; 0x54e <__vector_17+0x246>
+                {
+                    --g_curr_layer[x][z];   /* Decay the brightness - LED will be off when it reaches 0*/
+ 4ec:	8b 81       	ldd	r24, Y+3	; 0x03
+ 4ee:	48 2f       	mov	r20, r24
+ 4f0:	50 e0       	ldi	r21, 0x00	; 0
+ 4f2:	89 81       	ldd	r24, Y+1	; 0x01
+ 4f4:	28 2f       	mov	r18, r24
+ 4f6:	30 e0       	ldi	r19, 0x00	; 0
+ 4f8:	ca 01       	movw	r24, r20
+ 4fa:	88 0f       	add	r24, r24
+ 4fc:	99 1f       	adc	r25, r25
+ 4fe:	88 0f       	add	r24, r24
+ 500:	99 1f       	adc	r25, r25
+ 502:	88 0f       	add	r24, r24
+ 504:	99 1f       	adc	r25, r25
+ 506:	82 0f       	add	r24, r18
+ 508:	93 1f       	adc	r25, r19
+ 50a:	fc 01       	movw	r30, r24
+ 50c:	eb 5f       	subi	r30, 0xFB	; 251
+ 50e:	fd 4f       	sbci	r31, 0xFD	; 253
+ 510:	80 81       	ld	r24, Z
+ 512:	68 2f       	mov	r22, r24
+ 514:	61 50       	subi	r22, 0x01	; 1
+ 516:	ca 01       	movw	r24, r20
+ 518:	88 0f       	add	r24, r24
+ 51a:	99 1f       	adc	r25, r25
+ 51c:	88 0f       	add	r24, r24
+ 51e:	99 1f       	adc	r25, r25
+ 520:	88 0f       	add	r24, r24
+ 522:	99 1f       	adc	r25, r25
+ 524:	82 0f       	add	r24, r18
+ 526:	93 1f       	adc	r25, r19
+ 528:	fc 01       	movw	r30, r24
+ 52a:	eb 5f       	subi	r30, 0xFB	; 251
+ 52c:	fd 4f       	sbci	r31, 0xFD	; 253
+ 52e:	60 83       	st	Z, r22
+                    row_bitmask |= (1 << z);
+ 530:	89 81       	ldd	r24, Y+1	; 0x01
+ 532:	28 2f       	mov	r18, r24
+ 534:	30 e0       	ldi	r19, 0x00	; 0
+ 536:	81 e0       	ldi	r24, 0x01	; 1
+ 538:	90 e0       	ldi	r25, 0x00	; 0
+ 53a:	02 2e       	mov	r0, r18
+ 53c:	02 c0       	rjmp	.+4      	; 0x542 <__vector_17+0x23a>
+ 53e:	88 0f       	add	r24, r24
+ 540:	99 1f       	adc	r25, r25
+ 542:	0a 94       	dec	r0
+ 544:	e2 f7       	brpl	.-8      	; 0x53e <__vector_17+0x236>
+ 546:	98 2f       	mov	r25, r24
+ 548:	8a 81       	ldd	r24, Y+2	; 0x02
+ 54a:	89 2b       	or	r24, r25
+ 54c:	8a 83       	std	Y+2, r24	; 0x02
+        /* Go through each row/latch chip */
+        PORTE = (1 << PE4);  /* Set Output Enable to HIGH while we latch data into the bus */
+        for (uint8_t x = 0; x < CUBE_SIZE; ++x)
+        {
+            uint8_t row_bitmask = 0;
+            for (uint8_t z = 0; z < CUBE_SIZE; ++z)
+ 54e:	89 81       	ldd	r24, Y+1	; 0x01
+ 550:	8f 5f       	subi	r24, 0xFF	; 255
+ 552:	89 83       	std	Y+1, r24	; 0x01
+ 554:	89 81       	ldd	r24, Y+1	; 0x01
+ 556:	88 30       	cpi	r24, 0x08	; 8
+ 558:	08 f4       	brcc	.+2      	; 0x55c <__vector_17+0x254>
+ 55a:	b3 cf       	rjmp	.-154    	; 0x4c2 <__vector_17+0x1ba>
+                    row_bitmask |= (1 << z);
+                }
+            }
+
+
+            PORTK = row_bitmask; /* Put LED states for this row to the data bus */
+ 55c:	e8 e0       	ldi	r30, 0x08	; 8
+ 55e:	f1 e0       	ldi	r31, 0x01	; 1
+ 560:	8a 81       	ldd	r24, Y+2	; 0x02
+ 562:	80 83       	st	Z, r24
+            PORTF = (1 << x);    /* Set chip select for this row to HIGH to latch in the data on the bus */
+ 564:	e1 e3       	ldi	r30, 0x31	; 49
+ 566:	f0 e0       	ldi	r31, 0x00	; 0
+ 568:	8b 81       	ldd	r24, Y+3	; 0x03
+ 56a:	28 2f       	mov	r18, r24
+ 56c:	30 e0       	ldi	r19, 0x00	; 0
+ 56e:	81 e0       	ldi	r24, 0x01	; 1
+ 570:	90 e0       	ldi	r25, 0x00	; 0
+ 572:	02 2e       	mov	r0, r18
+ 574:	02 c0       	rjmp	.+4      	; 0x57a <__vector_17+0x272>
+ 576:	88 0f       	add	r24, r24
+ 578:	99 1f       	adc	r25, r25
+ 57a:	0a 94       	dec	r0
+ 57c:	e2 f7       	brpl	.-8      	; 0x576 <__vector_17+0x26e>
+ 57e:	80 83       	st	Z, r24
+            PORTF = 0;           /* Data has been latched - deselect the chip */
+ 580:	e1 e3       	ldi	r30, 0x31	; 49
+ 582:	f0 e0       	ldi	r31, 0x00	; 0
+ 584:	10 82       	st	Z, r1
+    {
+        ++g_counter;
+
+        /* Go through each row/latch chip */
+        PORTE = (1 << PE4);  /* Set Output Enable to HIGH while we latch data into the bus */
+        for (uint8_t x = 0; x < CUBE_SIZE; ++x)
+ 586:	8b 81       	ldd	r24, Y+3	; 0x03
+ 588:	8f 5f       	subi	r24, 0xFF	; 255
+ 58a:	8b 83       	std	Y+3, r24	; 0x03
+ 58c:	8b 81       	ldd	r24, Y+3	; 0x03
+ 58e:	88 30       	cpi	r24, 0x08	; 8
+ 590:	08 f4       	brcc	.+2      	; 0x594 <__vector_17+0x28c>
+ 592:	94 cf       	rjmp	.-216    	; 0x4bc <__vector_17+0x1b4>
+            PORTK = row_bitmask; /* Put LED states for this row to the data bus */
+            PORTF = (1 << x);    /* Set chip select for this row to HIGH to latch in the data on the bus */
+            PORTF = 0;           /* Data has been latched - deselect the chip */
+        }
+
+        PORTK = 0;           /* Unset the bus */
+ 594:	e8 e0       	ldi	r30, 0x08	; 8
+ 596:	f1 e0       	ldi	r31, 0x01	; 1
+ 598:	10 82       	st	Z, r1
+        PORTE = 0;           /* Enable the output */
+ 59a:	ee e2       	ldi	r30, 0x2E	; 46
+ 59c:	f0 e0       	ldi	r31, 0x00	; 0
+ 59e:	10 82       	st	Z, r1
+    }
+
+    /* Since this ISR is ISR_NAKED, we need to explicitly return from the ISR ourselves */
+    reti();
+ 5a0:	18 95       	reti
+
+000005a2 <main>:
+#include "cube.h"
+#include "comms.h"
+
+
+int main(void)
+{
+ 5a2:	df 93       	push	r29
+ 5a4:	cf 93       	push	r28
+ 5a6:	cd b7       	in	r28, 0x3d	; 61
+ 5a8:	de b7       	in	r29, 0x3e	; 62
+    cube_init();
+ 5aa:	0e 94 04 01 	call	0x208	; 0x208 <cube_init>
+    comms_init();
+ 5ae:	0e 94 95 00 	call	0x12a	; 0x12a <comms_init>
+
+	sei(); /* Enable interrupts */
+ 5b2:	78 94       	sei
+ 5b4:	ff cf       	rjmp	.-2      	; 0x5b4 <main+0x12>
+
+000005b6 <_exit>:
+ 5b6:	f8 94       	cli
+
+000005b8 <__stop_program>:
+ 5b8:	ff cf       	rjmp	.-2      	; 0x5b8 <__stop_program>
