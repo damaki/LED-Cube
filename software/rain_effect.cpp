@@ -7,6 +7,9 @@
 #define MIN_FALL_RATE (0.001f)
 #define MAX_FALL_RATE (1.0f)
 
+#define MIN_SPAWN_RATE (0.1f)
+#define MAX_SPAWN_RATE (10.0f)
+
 namespace effects
 {
 
@@ -16,6 +19,8 @@ Rain::Rain()
     , m_pDecaySlider(NULL)
     , m_pFallRateSlider(NULL)
     , m_pSpawnRateSlider(NULL)
+    , m_spawn_rate(1.0f)
+    , m_spawn_counter(0.0f)
 {
     m_decay_rate = 0.01f;
     m_fall_rate = 0.15f;
@@ -33,6 +38,9 @@ Rain::Rain()
 
     m_pFallRateSlider->setValue(convert(m_fall_rate, MIN_FALL_RATE, MAX_FALL_RATE,
                                         m_pFallRateSlider->minimum(), m_pFallRateSlider->maximum()));
+
+    m_pSpawnRateSlider->setValue(convert(m_spawn_rate, MIN_SPAWN_RATE, MAX_SPAWN_RATE,
+                                         m_pSpawnRateSlider->minimum(), m_pSpawnRateSlider->maximum()));
 }
 
 Rain::~Rain()
@@ -43,6 +51,12 @@ Rain::~Rain()
 void Rain::start()
 {
     memset(m_cube, 0, sizeof(m_cube));
+
+    // Delete any existing raindrops
+    for (uint8_t x = 0; x < CUBE_SIZE; ++x)
+        for (uint8_t y = 0;y < CUBE_SIZE; ++y)
+            m_drops[x][y].clear();
+
     srand(10);
 }
 
@@ -78,12 +92,19 @@ void Rain::update(boost::asio::serial_port &port)
         }
     }
 
-    // Make a new drop at the top layer somewhere
-    uint8_t new_x = rand() % 8;
-    uint8_t new_z = rand() % 8;
-    float new_brightness = 0.5f + (static_cast<float>(rand() % 256)/512);
+    // Make new drops
+    m_spawn_counter += m_spawn_rate;
+    const uint32_t num_drops_to_spawn = static_cast<uint32_t>(m_spawn_counter);
+    m_spawn_counter -= num_drops_to_spawn;
 
-    m_drops[new_x][new_z].push_back(RainDrop(7.0f, new_brightness));
+    for (uint32_t i = 0; i < num_drops_to_spawn; ++i)
+    {
+        const uint32_t new_x = rand() % 8;
+        const uint32_t new_y = rand() % 8;
+        float new_brightness = 0.5f + (static_cast<float>(rand() % 256)/512); // Random brightness at least 50% brightness
+
+        m_drops[new_x][new_y].push_back(RainDrop(7.0f, new_brightness));
+    }
 
     // Calculate the cube
     memset(m_cube, 0, sizeof(m_cube));
@@ -112,7 +133,8 @@ void Rain::set_decay_rate(int rate)
 
 void Rain::set_spawn_rate(int rate)
 {
-    //TODO: set_spawn_rate
+    m_spawn_rate = convert(rate, m_pSpawnRateSlider->minimum(), m_pSpawnRateSlider->maximum(),
+                           MIN_SPAWN_RATE, MAX_SPAWN_RATE);
 }
 
 void Rain::set_fall_rate(int rate)

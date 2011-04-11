@@ -37,6 +37,8 @@ private:
     uint32_t m_counter;
     float m_decay_rate;
     float m_fall_rate;
+    float m_spawn_rate;
+    float m_spawn_counter;
 
     std::list<RainDrop> m_drops[CUBE_SIZE][CUBE_SIZE];
 
