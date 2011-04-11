@@ -28,7 +28,8 @@ FORMS += mainwindow.ui \
     test_effect_ctrl.ui \
     rain_effect_ctrl.ui \
     ball_effect_ctrl.ui \
-    wave_effect_ctrl.ui
+    wave_effect_ctrl.ui \
+    text_scroll_effect_ctrl.ui
 INCLUDEPATH += ../../../boost_1_46_1 \
     ../../../boost_1_46_1/boost
 LIBS += -L../../../boost_1_46_1/stage/lib \
