@@ -47,7 +47,7 @@ void TextScroll::update(boost::asio::serial_port &port)
         // Draw face 3
         for (uint8_t x = 0; x < CUBE_SIZE; ++x)
         {
-            const int32_t char_col_offset = (m_pos - x) - (CUBE_SIZE*2);
+            const int32_t char_col_offset = ((m_pos - x) - (CUBE_SIZE*2)) + 2;
 
             if ((char_col_offset >= 0) * (char_col_offset < (m_string.size()*CUBE_SIZE)))
             {
@@ -65,7 +65,7 @@ void TextScroll::update(boost::asio::serial_port &port)
         // Draw face 2
         for (uint8_t z = 0; z < CUBE_SIZE; ++z)
         {
-            const int32_t char_col_offset = (m_pos - z) - CUBE_SIZE;
+            const int32_t char_col_offset = ((m_pos - z) - CUBE_SIZE) + 1;
 
             if ((char_col_offset >= 0) * (char_col_offset < (m_string.size()*CUBE_SIZE)))
             {

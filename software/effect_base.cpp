@@ -45,8 +45,14 @@ void BaseEffect::send(boost::asio::serial_port &port)
             // Also convert the brightness scale from a linear scale to a logarithmic one.
             // This has the downside that the brightness is more precise at the higher brightnesses,
             // but is less precise at the lower end of the scale.
-            uint8_t x1 = static_cast<uint8_t>((unpacked_cube[i]*unpacked_cube[i]*MAX_BRIGHTNESS) + 0.5f);
-            uint8_t x2 = static_cast<uint8_t>((unpacked_cube[i+1]*unpacked_cube[i+1]*MAX_BRIGHTNESS) + 0.5f);
+            float f1 = unpacked_cube[i]*unpacked_cube[i];
+            float f2 = unpacked_cube[i+1]*unpacked_cube[i+1];
+
+            if (f1 > 1.0f) f1 = 1.0f;
+            if (f2 > 1.0f) f2 = 1.0f;
+
+            uint8_t x1 = static_cast<uint8_t>((f1*MAX_BRIGHTNESS) + 0.5f);
+            uint8_t x2 = static_cast<uint8_t>((f2*MAX_BRIGHTNESS) + 0.5f);
 
             // Clamp the brightness
             if (x1 > MAX_BRIGHTNESS) x1 = MAX_BRIGHTNESS;
