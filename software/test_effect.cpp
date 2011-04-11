@@ -83,4 +83,9 @@ void Test::setBrightness(int brightness)
     m_brightness = (float)brightness/pBrightnessDial->maximum();
 }
 
+void Test::setSpeed(int speed)
+{
+    m_speed = speed;
+}
+
 } // namespace effects

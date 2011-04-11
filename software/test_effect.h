@@ -19,7 +19,7 @@ public:
 
 private slots:
     void setBrightness(int brightness);
-    void setSpeed(int speed) { m_speed = speed; }
+    void setSpeed(int speed);
 
 private:
     uint32_t m_counter;

@@ -13,6 +13,7 @@ INPUT(
 ./release/moc_test_effect.o
 ./release/moc_rain_effect.o
 ./release/moc_ball_effect.o
+./release/moc_wave_effect.o
 ./release/moc_text_scroll_effect.o
 ./release/qrc_resources.o
 );

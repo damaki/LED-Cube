@@ -54,6 +54,8 @@ void cube_init()
 
 ISR(TIMER1_COMPA_vect, ISR_NAKED)
 {
+    PORTE = (1 << PE4);  /* Set Output Enable to HIGH while we do stuff */
+
     if (g_counter >= (MAX_BRIGHTNESS - 1)) /* Finished updating the current layer? */
     {
         g_counter = 0;
@@ -67,7 +69,6 @@ ISR(TIMER1_COMPA_vect, ISR_NAKED)
 
         /* Turn off all LEDs while we change layers */
         PORTA = 0;           /* Turn off all layers */
-        PORTE = (1 << PE4);  /* Set Output Enable to HIGH while we latch data into the bus */
 
         /* Go through each row in the layer */
         for (uint8_t x = 0; x < CUBE_SIZE; ++x)
@@ -88,10 +89,9 @@ ISR(TIMER1_COMPA_vect, ISR_NAKED)
             PORTK = row_bitmask; /* Put LED states to data bus */
             PORTF = (1 << x);    /* Set chip select for this row to HIGH to latch in the data on the bus */
             PORTF = 0;           /* Data has been latched - deselect the chip */
+            PORTK = 0;
         }
 
-        PORTK = 0;           /* Unset the bus */
-        PORTE = 0;           /* Enable the output */
         PORTA = (1 << g_layer); /* Turn on the current layer only */
     }
     else /* Update the current layer */
@@ -99,7 +99,6 @@ ISR(TIMER1_COMPA_vect, ISR_NAKED)
         ++g_counter;
 
         /* Go through each row/latch chip */
-        PORTE = (1 << PE4);  /* Set Output Enable to HIGH while we latch data into the bus */
         for (uint8_t x = 0; x < CUBE_SIZE; ++x)
         {
             uint8_t row_bitmask = 0;
@@ -112,15 +111,14 @@ ISR(TIMER1_COMPA_vect, ISR_NAKED)
                 }
             }
 
-
             PORTK = row_bitmask; /* Put LED states for this row to the data bus */
             PORTF = (1 << x);    /* Set chip select for this row to HIGH to latch in the data on the bus */
             PORTF = 0;           /* Data has been latched - deselect the chip */
+            PORTK = 0;
         }
-
-        PORTK = 0;           /* Unset the bus */
-        PORTE = 0;           /* Enable the output */
     }
+
+    PORTE = 0;              /* Enable the output */
 
     /* Since this ISR is ISR_NAKED, we need to explicitly return from the ISR ourselves */
     reti();

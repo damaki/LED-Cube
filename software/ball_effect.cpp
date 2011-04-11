@@ -32,11 +32,11 @@ Ball::Ball()
     connect(m_pSlider_speed, SIGNAL(valueChanged(int)), this, SLOT(set_speed(int)));
     connect(m_pSlider_size, SIGNAL(valueChanged(int)), this, SLOT(set_size(int)));
 
-    int slider_diff = m_pSlider_size->maximum() - m_pSlider_size->minimum();
-    m_pSlider_size->setValue(((m_ball.size - MIN_BALL_SIZE)*slider_diff)/(MAX_BALL_SIZE - MIN_BALL_SIZE));
+    m_pSlider_size->setValue(convert(m_ball.size, MIN_BALL_SIZE, MAX_BALL_SIZE,
+                                     m_pSlider_size->minimum(), m_pSlider_size->maximum()));
 
-    slider_diff = m_pSlider_speed->maximum() - m_pSlider_speed->minimum();
-    m_pSlider_speed->setValue(((m_ball.speed - MIN_BALL_SPEED)*slider_diff)/(MAX_BALL_SPEED - MIN_BALL_SPEED));
+    m_pSlider_speed->setValue(convert(m_ball.speed, MIN_BALL_SPEED, MAX_BALL_SPEED,
+                                      m_pSlider_speed->minimum(), m_pSlider_speed->maximum()));
 }
 
 Ball::~Ball()
@@ -131,12 +131,14 @@ void Ball::update(boost::asio::serial_port &port)
 
 void Ball::set_speed(int speed)
 {
-    m_ball.speed = MIN_BALL_SPEED + ((float)speed/m_pSlider_speed->maximum())*(MAX_BALL_SPEED - MIN_BALL_SPEED);
+    m_ball.speed = convert(speed, m_pSlider_speed->minimum(), m_pSlider_speed->maximum(),
+                           MIN_BALL_SPEED, MAX_BALL_SPEED);
 }
 
 void Ball::set_size(int size)
 {
-    m_ball.size = MIN_BALL_SIZE + ((float)size/m_pSlider_size->maximum())*(MAX_BALL_SIZE - MIN_BALL_SIZE);
+    m_ball.size = convert(size, m_pSlider_size->minimum(), m_pSlider_size->maximum(),
+                          MIN_BALL_SIZE, MAX_BALL_SIZE);
 }
 
 } // namespace effects

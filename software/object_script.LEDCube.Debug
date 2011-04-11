@@ -13,6 +13,7 @@ INPUT(
 ./debug/moc_test_effect.o
 ./debug/moc_rain_effect.o
 ./debug/moc_ball_effect.o
+./debug/moc_wave_effect.o
 ./debug/moc_text_scroll_effect.o
 ./debug/qrc_resources.o
 );

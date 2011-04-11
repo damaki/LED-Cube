@@ -34,10 +34,21 @@ public:
     virtual void send(boost::asio::serial_port &port);
 
 protected:
+    template <typename InType, typename OutType>
+    static OutType convert(InType value, InType min, InType max, OutType i_min, OutType i_max);
+
+protected:
     float m_cube[CUBE_SIZE][CUBE_SIZE][CUBE_SIZE];
 
     QWidget *m_pCtrls;
 };
+
+
+template <typename InType, typename OutType>
+OutType BaseEffect::convert(InType value, InType min, InType max, OutType i_min, OutType i_max)
+{
+    return (value - min)*((i_max - i_min)/(max - min));
+}
 
 } // namespace effects
 

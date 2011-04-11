@@ -124,7 +124,7 @@ LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x5ba
+.text           0x00000000      0x5c0
  *(.vectors)
  .vectors       0x00000000       0xe4 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr6/crtm2560.o
                 0x00000000                __vectors
@@ -238,22 +238,22 @@ LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a
  .text          0x0000012a       0xde ./comms.o
                 0x0000012a                comms_init
                 0x00000158                __vector_25
- .text          0x00000208      0x39a ./cube.o
+ .text          0x00000208      0x3a0 ./cube.o
                 0x00000208                cube_init
                 0x00000308                __vector_17
- .text          0x000005a2       0x14 ./main.o
-                0x000005a2                main
- .text          0x000005b6        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_exit.o)
- .text          0x000005b6        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clear_bss.o)
-                0x000005b6                . = ALIGN (0x2)
+ .text          0x000005a8       0x14 ./main.o
+                0x000005a8                main
+ .text          0x000005bc        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_exit.o)
+ .text          0x000005bc        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clear_bss.o)
+                0x000005bc                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x000005b6        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_exit.o)
- .text.libgcc   0x000005b6        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clear_bss.o)
-                0x000005b6                . = ALIGN (0x2)
+ .text.libgcc   0x000005bc        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_exit.o)
+ .text.libgcc   0x000005bc        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_clear_bss.o)
+                0x000005bc                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000005b6        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_exit.o)
-                0x000005b6                exit
-                0x000005b6                _exit
+ .fini9         0x000005bc        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_exit.o)
+                0x000005bc                exit
+                0x000005bc                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -272,11 +272,11 @@ LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000005b6        0x4 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_exit.o)
+ .fini0         0x000005bc        0x4 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a(_exit.o)
  *(.fini0)
-                0x000005ba                _etext = .
+                0x000005c0                _etext = .
 
-.data           0x00800200        0x2 load address 0x000005ba
+.data           0x00800200        0x2 load address 0x000005c0
                 0x00800200                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800200        0x0 c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/../../../../avr/lib/avr6/crtm2560.o
@@ -307,8 +307,8 @@ LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a
  COMMON         0x00800245      0x200 ./cube.o
                 0x00800245                g_cube
                 0x00800445                PROVIDE (__bss_end, .)
-                0x000005ba                __data_load_start = LOADADDR (.data)
-                0x000005bc                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x000005c0                __data_load_start = LOADADDR (.data)
+                0x000005c2                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800445        0x0
                 0x00800445                PROVIDE (__noinit_start, .)
@@ -333,12 +333,12 @@ LOAD c:/winavr-20090313/bin/../lib/gcc/avr/4.3.2/avr6\libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x00000000      0xb94
+.stab           0x00000000      0xba0
  *(.stab)
  .stab          0x00000000      0x45c ./comms.o
- .stab          0x0000045c      0x5ac ./cube.o
-                                0x774 (size before relaxing)
- .stab          0x00000a08      0x18c ./main.o
+ .stab          0x0000045c      0x5b8 ./cube.o
+                                0x780 (size before relaxing)
+ .stab          0x00000a14      0x18c ./main.o
                                 0x348 (size before relaxing)
 
 .stabstr        0x00000000      0x8a3

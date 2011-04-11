@@ -3,11 +3,11 @@ LED-Cube-firmware.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000002  00800200  000004c0  00000554  2**0
+  0 .data         00000002  00800200  000004ba  0000054e  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         000004c0  00000000  00000000  00000094  2**1
+  1 .text         000004ba  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000243  00800202  00800202  00000556  2**0
+  2 .bss          00000243  00800202  00800202  00000550  2**0
                   ALLOC
 
 Disassembly of section .text:
@@ -85,7 +85,7 @@ Disassembly of section .text:
   f4:	12 e0       	ldi	r17, 0x02	; 2
   f6:	a0 e0       	ldi	r26, 0x00	; 0
   f8:	b2 e0       	ldi	r27, 0x02	; 2
-  fa:	e0 ec       	ldi	r30, 0xC0	; 192
+  fa:	ea eb       	ldi	r30, 0xBA	; 186
   fc:	f4 e0       	ldi	r31, 0x04	; 4
   fe:	00 e0       	ldi	r16, 0x00	; 0
  100:	0b bf       	out	0x3b, r16	; 59
@@ -109,8 +109,8 @@ Disassembly of section .text:
  118:	a5 34       	cpi	r26, 0x45	; 69
  11a:	b1 07       	cpc	r27, r17
  11c:	e1 f7       	brne	.-8      	; 0x116 <.do_clear_bss_loop>
- 11e:	0e 94 58 02 	call	0x4b0	; 0x4b0 <main>
- 122:	0c 94 5e 02 	jmp	0x4bc	; 0x4bc <_exit>
+ 11e:	0e 94 55 02 	call	0x4aa	; 0x4aa <main>
+ 122:	0c 94 5b 02 	jmp	0x4b6	; 0x4b6 <_exit>
 
 00000126 <__bad_interrupt>:
  126:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -316,21 +316,21 @@ Disassembly of section .text:
  2e4:	08 95       	ret
 
 000002e6 <__vector_17>:
- 2e6:	80 91 00 02 	lds	r24, 0x0200
- 2ea:	8d 30       	cpi	r24, 0x0D	; 13
- 2ec:	08 f4       	brcc	.+2      	; 0x2f0 <__vector_17+0xa>
- 2ee:	7e c0       	rjmp	.+252    	; 0x3ec <__vector_17+0x106>
- 2f0:	10 92 00 02 	sts	0x0200, r1
- 2f4:	90 91 01 02 	lds	r25, 0x0201
- 2f8:	9f 5f       	subi	r25, 0xFF	; 255
- 2fa:	90 93 01 02 	sts	0x0201, r25
- 2fe:	98 30       	cpi	r25, 0x08	; 8
- 300:	08 f0       	brcs	.+2      	; 0x304 <__vector_17+0x1e>
- 302:	d2 c0       	rjmp	.+420    	; 0x4a8 <__vector_17+0x1c2>
- 304:	12 b8       	out	0x02, r1	; 2
- 306:	80 e1       	ldi	r24, 0x10	; 16
- 308:	8e b9       	out	0x0e, r24	; 14
- 30a:	c9 2f       	mov	r28, r25
+ 2e6:	80 e1       	ldi	r24, 0x10	; 16
+ 2e8:	8e b9       	out	0x0e, r24	; 14
+ 2ea:	80 91 00 02 	lds	r24, 0x0200
+ 2ee:	8d 30       	cpi	r24, 0x0D	; 13
+ 2f0:	08 f4       	brcc	.+2      	; 0x2f4 <__vector_17+0xe>
+ 2f2:	7e c0       	rjmp	.+252    	; 0x3f0 <__vector_17+0x10a>
+ 2f4:	10 92 00 02 	sts	0x0200, r1
+ 2f8:	80 91 01 02 	lds	r24, 0x0201
+ 2fc:	8f 5f       	subi	r24, 0xFF	; 255
+ 2fe:	80 93 01 02 	sts	0x0201, r24
+ 302:	88 30       	cpi	r24, 0x08	; 8
+ 304:	08 f0       	brcs	.+2      	; 0x308 <__vector_17+0x22>
+ 306:	cd c0       	rjmp	.+410    	; 0x4a2 <__vector_17+0x1bc>
+ 308:	12 b8       	out	0x02, r1	; 2
+ 30a:	c8 2f       	mov	r28, r24
  30c:	d0 e0       	ldi	r29, 0x00	; 0
  30e:	de 01       	movw	r26, r28
  310:	aa 0f       	add	r26, r26
@@ -347,7 +347,7 @@ Disassembly of section .text:
  326:	50 e0       	ldi	r21, 0x00	; 0
  328:	61 e0       	ldi	r22, 0x01	; 1
  32a:	70 e0       	ldi	r23, 0x00	; 0
- 32c:	56 c0       	rjmp	.+172    	; 0x3da <__vector_17+0xf4>
+ 32c:	58 c0       	rjmp	.+176    	; 0x3de <__vector_17+0xf8>
  32e:	90 e0       	ldi	r25, 0x00	; 0
  330:	11 96       	adiw	r26, 0x01	; 1
  332:	8c 91       	ld	r24, X
@@ -424,35 +424,34 @@ Disassembly of section .text:
  3c2:	e2 f7       	brpl	.-8      	; 0x3bc <__vector_17+0xd6>
  3c4:	81 bb       	out	0x11, r24	; 17
  3c6:	11 ba       	out	0x11, r1	; 17
- 3c8:	4f 5f       	subi	r20, 0xFF	; 255
- 3ca:	5f 4f       	sbci	r21, 0xFF	; 255
- 3cc:	a0 5c       	subi	r26, 0xC0	; 192
- 3ce:	bf 4f       	sbci	r27, 0xFF	; 255
- 3d0:	38 96       	adiw	r30, 0x08	; 8
- 3d2:	48 30       	cpi	r20, 0x08	; 8
- 3d4:	51 05       	cpc	r21, r1
- 3d6:	09 f4       	brne	.+2      	; 0x3da <__vector_17+0xf4>
- 3d8:	58 c0       	rjmp	.+176    	; 0x48a <__vector_17+0x1a4>
- 3da:	8c 91       	ld	r24, X
- 3dc:	80 83       	st	Z, r24
- 3de:	88 23       	and	r24, r24
- 3e0:	09 f4       	brne	.+2      	; 0x3e4 <__vector_17+0xfe>
- 3e2:	a5 cf       	rjmp	.-182    	; 0x32e <__vector_17+0x48>
- 3e4:	81 50       	subi	r24, 0x01	; 1
- 3e6:	80 83       	st	Z, r24
- 3e8:	91 e0       	ldi	r25, 0x01	; 1
- 3ea:	a2 cf       	rjmp	.-188    	; 0x330 <__vector_17+0x4a>
- 3ec:	8f 5f       	subi	r24, 0xFF	; 255
- 3ee:	80 93 00 02 	sts	0x0200, r24
- 3f2:	20 e1       	ldi	r18, 0x10	; 16
- 3f4:	2e b9       	out	0x0e, r18	; 14
+ 3c8:	10 92 08 01 	sts	0x0108, r1
+ 3cc:	4f 5f       	subi	r20, 0xFF	; 255
+ 3ce:	5f 4f       	sbci	r21, 0xFF	; 255
+ 3d0:	a0 5c       	subi	r26, 0xC0	; 192
+ 3d2:	bf 4f       	sbci	r27, 0xFF	; 255
+ 3d4:	38 96       	adiw	r30, 0x08	; 8
+ 3d6:	48 30       	cpi	r20, 0x08	; 8
+ 3d8:	51 05       	cpc	r21, r1
+ 3da:	09 f4       	brne	.+2      	; 0x3de <__vector_17+0xf8>
+ 3dc:	59 c0       	rjmp	.+178    	; 0x490 <__vector_17+0x1aa>
+ 3de:	8c 91       	ld	r24, X
+ 3e0:	80 83       	st	Z, r24
+ 3e2:	88 23       	and	r24, r24
+ 3e4:	09 f4       	brne	.+2      	; 0x3e8 <__vector_17+0x102>
+ 3e6:	a3 cf       	rjmp	.-186    	; 0x32e <__vector_17+0x48>
+ 3e8:	81 50       	subi	r24, 0x01	; 1
+ 3ea:	80 83       	st	Z, r24
+ 3ec:	91 e0       	ldi	r25, 0x01	; 1
+ 3ee:	a0 cf       	rjmp	.-192    	; 0x330 <__vector_17+0x4a>
+ 3f0:	8f 5f       	subi	r24, 0xFF	; 255
+ 3f2:	80 93 00 02 	sts	0x0200, r24
  3f6:	e5 e0       	ldi	r30, 0x05	; 5
  3f8:	f2 e0       	ldi	r31, 0x02	; 2
  3fa:	20 e0       	ldi	r18, 0x00	; 0
  3fc:	30 e0       	ldi	r19, 0x00	; 0
  3fe:	41 e0       	ldi	r20, 0x01	; 1
  400:	50 e0       	ldi	r21, 0x00	; 0
- 402:	3c c0       	rjmp	.+120    	; 0x47c <__vector_17+0x196>
+ 402:	3e c0       	rjmp	.+124    	; 0x480 <__vector_17+0x19a>
  404:	90 e0       	ldi	r25, 0x00	; 0
  406:	81 81       	ldd	r24, Z+1	; 0x01
  408:	88 23       	and	r24, r24
@@ -506,21 +505,21 @@ Disassembly of section .text:
  46a:	e2 f7       	brpl	.-8      	; 0x464 <__vector_17+0x17e>
  46c:	81 bb       	out	0x11, r24	; 17
  46e:	11 ba       	out	0x11, r1	; 17
- 470:	2f 5f       	subi	r18, 0xFF	; 255
- 472:	3f 4f       	sbci	r19, 0xFF	; 255
- 474:	38 96       	adiw	r30, 0x08	; 8
- 476:	28 30       	cpi	r18, 0x08	; 8
- 478:	31 05       	cpc	r19, r1
- 47a:	91 f0       	breq	.+36     	; 0x4a0 <__vector_17+0x1ba>
- 47c:	80 81       	ld	r24, Z
- 47e:	88 23       	and	r24, r24
- 480:	09 f2       	breq	.-126    	; 0x404 <__vector_17+0x11e>
- 482:	81 50       	subi	r24, 0x01	; 1
- 484:	80 83       	st	Z, r24
- 486:	91 e0       	ldi	r25, 0x01	; 1
- 488:	be cf       	rjmp	.-132    	; 0x406 <__vector_17+0x120>
- 48a:	10 92 08 01 	sts	0x0108, r1
- 48e:	1e b8       	out	0x0e, r1	; 14
+ 470:	10 92 08 01 	sts	0x0108, r1
+ 474:	2f 5f       	subi	r18, 0xFF	; 255
+ 476:	3f 4f       	sbci	r19, 0xFF	; 255
+ 478:	38 96       	adiw	r30, 0x08	; 8
+ 47a:	28 30       	cpi	r18, 0x08	; 8
+ 47c:	31 05       	cpc	r19, r1
+ 47e:	79 f0       	breq	.+30     	; 0x49e <__vector_17+0x1b8>
+ 480:	80 81       	ld	r24, Z
+ 482:	88 23       	and	r24, r24
+ 484:	09 f4       	brne	.+2      	; 0x488 <__vector_17+0x1a2>
+ 486:	be cf       	rjmp	.-132    	; 0x404 <__vector_17+0x11e>
+ 488:	81 50       	subi	r24, 0x01	; 1
+ 48a:	80 83       	st	Z, r24
+ 48c:	91 e0       	ldi	r25, 0x01	; 1
+ 48e:	bb cf       	rjmp	.-138    	; 0x406 <__vector_17+0x120>
  490:	0c 2e       	mov	r0, r28
  492:	02 c0       	rjmp	.+4      	; 0x498 <__vector_17+0x1b2>
  494:	22 0f       	add	r18, r18
@@ -528,22 +527,20 @@ Disassembly of section .text:
  498:	0a 94       	dec	r0
  49a:	e2 f7       	brpl	.-8      	; 0x494 <__vector_17+0x1ae>
  49c:	22 b9       	out	0x02, r18	; 2
- 49e:	18 95       	reti
- 4a0:	10 92 08 01 	sts	0x0108, r1
- 4a4:	1e b8       	out	0x0e, r1	; 14
- 4a6:	18 95       	reti
- 4a8:	10 92 01 02 	sts	0x0201, r1
- 4ac:	90 e0       	ldi	r25, 0x00	; 0
- 4ae:	2a cf       	rjmp	.-428    	; 0x304 <__vector_17+0x1e>
+ 49e:	1e b8       	out	0x0e, r1	; 14
+ 4a0:	18 95       	reti
+ 4a2:	10 92 01 02 	sts	0x0201, r1
+ 4a6:	80 e0       	ldi	r24, 0x00	; 0
+ 4a8:	2f cf       	rjmp	.-418    	; 0x308 <__vector_17+0x22>
 
-000004b0 <main>:
- 4b0:	0e 94 d9 00 	call	0x1b2	; 0x1b2 <cube_init>
- 4b4:	0e 94 95 00 	call	0x12a	; 0x12a <comms_init>
- 4b8:	78 94       	sei
- 4ba:	ff cf       	rjmp	.-2      	; 0x4ba <main+0xa>
+000004aa <main>:
+ 4aa:	0e 94 d9 00 	call	0x1b2	; 0x1b2 <cube_init>
+ 4ae:	0e 94 95 00 	call	0x12a	; 0x12a <comms_init>
+ 4b2:	78 94       	sei
+ 4b4:	ff cf       	rjmp	.-2      	; 0x4b4 <main+0xa>
 
-000004bc <_exit>:
- 4bc:	f8 94       	cli
+000004b6 <_exit>:
+ 4b6:	f8 94       	cli
 
-000004be <__stop_program>:
- 4be:	ff cf       	rjmp	.-2      	; 0x4be <__stop_program>
+000004b8 <__stop_program>:
+ 4b8:	ff cf       	rjmp	.-2      	; 0x4b8 <__stop_program>

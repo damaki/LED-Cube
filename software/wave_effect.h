@@ -7,6 +7,7 @@ namespace effects
 
 class Wave : public BaseEffect
 {
+    Q_OBJECT
 public:
     Wave();
     ~Wave();
@@ -16,11 +17,20 @@ public:
 
     virtual void update(boost::asio::serial_port &port);
 
+private slots:
+    void set_speed(int speed);
+    void set_width(int width);
+    void set_height(int height);
+
 private:
     float m_speed;
     float m_pos;
-    float m_size;
+    float m_width;
     float m_height;
+
+    QSlider *m_pSlider_speed;
+    QSlider *m_pSlider_width;
+    QSlider *m_pSlider_height;
 };
 
 } // namespace effects

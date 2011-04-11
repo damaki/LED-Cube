@@ -28,11 +28,11 @@ Rain::Rain()
     connect(m_pFallRateSlider, SIGNAL(valueChanged(int)), this, SLOT(set_fall_rate(int)));
     connect(m_pSpawnRateSlider, SIGNAL(valueChanged(int)), this, SLOT(set_spawn_rate(int)));
 
-    int slider_diff = m_pDecaySlider->maximum() - m_pDecaySlider->minimum();
-    m_pDecaySlider->setValue((m_decay_rate - MIN_DECAY_RATE)*slider_diff);
+    m_pDecaySlider->setValue(convert(m_decay_rate, MIN_DECAY_RATE, MAX_DECAY_RATE,
+                                     m_pDecaySlider->minimum(), m_pDecaySlider->maximum()));
 
-    slider_diff = m_pFallRateSlider->maximum() - m_pFallRateSlider->minimum();
-    m_pFallRateSlider->setValue((m_fall_rate - MIN_FALL_RATE)*slider_diff);
+    m_pFallRateSlider->setValue(convert(m_fall_rate, MIN_FALL_RATE, MAX_FALL_RATE,
+                                        m_pFallRateSlider->minimum(), m_pFallRateSlider->maximum()));
 }
 
 Rain::~Rain()
@@ -106,7 +106,8 @@ void Rain::update(boost::asio::serial_port &port)
 
 void Rain::set_decay_rate(int rate)
 {
-    m_decay_rate = MIN_DECAY_RATE + (((float)rate/m_pDecaySlider->maximum())*(MAX_DECAY_RATE - MIN_DECAY_RATE));
+    m_decay_rate = convert(rate, m_pDecaySlider->minimum(), m_pDecaySlider->maximum(),
+                           MIN_DECAY_RATE, MAX_DECAY_RATE);
 }
 
 void Rain::set_spawn_rate(int rate)
@@ -116,7 +117,8 @@ void Rain::set_spawn_rate(int rate)
 
 void Rain::set_fall_rate(int rate)
 {
-    m_fall_rate = MIN_FALL_RATE + (((float)rate/m_pFallRateSlider->maximum())*(MAX_FALL_RATE - MIN_FALL_RATE));
+    m_fall_rate = convert(rate, m_pFallRateSlider->minimum(), m_pFallRateSlider->maximum(),
+                          MIN_FALL_RATE, MAX_FALL_RATE);
 }
 
 } // namespace effects
