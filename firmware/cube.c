@@ -13,6 +13,11 @@ static uint8_t g_layer   = CUBE_SIZE;
 static uint8_t g_counter = MAX_BRIGHTNESS;
 static uint8_t g_curr_layer[CUBE_SIZE][CUBE_SIZE];
 
+/* PORT K = 8 bit data bus (connected to D0 to D7 of all 74HC latches) */
+/* PORT E = Bit 4 controls the Output Enable (OE) pin on all 74HC chips. HIGH means that output is disabled */
+/* PORT F = Controls the Chip Select (CP) pin on each 74HC. Bit 0 = 74HC #0. Move from LOW to HIGH to latch in data from PORTK */
+/* PORT A = Controls the 8 MOSFETs which drive the 8 LED layers. Bit 0 = bottom layer. HIGH = layer on */
+
 /**
  * \brief Initialises the cube and
  */
