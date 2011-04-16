@@ -8,7 +8,6 @@ INPUT(
 ./debug/ball_effect.o
 ./debug/wave_effect.o
 ./debug/text_scroll_effect.o
-./debug/ascii_table.o
 ./debug/moc_mainwindow.o
 ./debug/moc_test_effect.o
 ./debug/moc_rain_effect.o

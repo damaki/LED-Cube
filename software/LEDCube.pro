@@ -13,8 +13,7 @@ SOURCES += main.cpp \
     rain_effect.cpp \
     ball_effect.cpp \
     wave_effect.cpp \
-    text_scroll_effect.cpp \
-    ascii_table.cpp
+    text_scroll_effect.cpp
 HEADERS += mainwindow.h \
     effect_base.h \
     test_effect.h \
@@ -22,8 +21,7 @@ HEADERS += mainwindow.h \
     rain_effect.h \
     ball_effect.h \
     wave_effect.h \
-    text_scroll_effect.h \
-    ascii_table.h
+    text_scroll_effect.h
 FORMS += mainwindow.ui \
     test_effect_ctrl.ui \
     rain_effect_ctrl.ui \
