@@ -1,6 +1,8 @@
 #include "text_scroll_effect.h"
 #include "ascii_table.h"
 
+#include <QPaintEngine>
+
 #define MIN_SPEED (0.05f)
 #define MAX_SPEED (3.0f)
 
@@ -12,6 +14,7 @@ TextScroll::TextScroll()
     , m_string("")
     , m_pos(0.0f)
     , m_scrollrate(0.5f)
+    , m_bitmap(QPixmap(":/fonts/font.pbm", "PBM", Qt::MonoOnly).toImage())
 {
     m_pEdit_text    = m_pCtrls->findChild<QLineEdit*>("edit_text");
     m_pSlider_speed = m_pCtrls->findChild<QSlider*>("slider_speed");
@@ -44,70 +47,65 @@ void TextScroll::update(boost::asio::serial_port &port)
     {
         boost::unique_lock<boost::mutex> lock(m_mutex);
 
-        // Draw face 3
-        for (uint8_t x = 0; x < CUBE_SIZE; ++x)
-        {
-            const int32_t char_col_offset = ((m_pos - x) - (CUBE_SIZE*2)) + 2;
-
-            if ((char_col_offset >= 0) * (char_col_offset < (m_string.size()*CUBE_SIZE)))
-            {
-                const int32_t char_index = m_string[char_col_offset/8].toAscii();
-
-                for (uint8_t y = 0;y < CUBE_SIZE; ++y)
-                {
-                    const int32_t char_row_offset = (CUBE_SIZE - 1) - y;
-
-                    m_cube[(CUBE_SIZE - 1) - x][y][7] = g_ascii_table[char_index][char_row_offset][char_col_offset % CUBE_SIZE];
-                }
-            }
-        }
-
-        // Draw face 2
-        for (uint8_t z = 0; z < CUBE_SIZE; ++z)
-        {
-            const int32_t char_col_offset = ((m_pos - z) - CUBE_SIZE) + 1;
-
-            if ((char_col_offset >= 0) * (char_col_offset < (m_string.size()*CUBE_SIZE)))
-            {
-                const int32_t char_index = m_string[char_col_offset/8].toAscii();
-
-                for (uint8_t y = 0;y < CUBE_SIZE; ++y)
-                {
-                    const int32_t char_row_offset = (CUBE_SIZE - 1) - y;
-
-                    m_cube[7][y][z] = g_ascii_table[char_index][char_row_offset][char_col_offset % CUBE_SIZE];
-                }
-            }
-        }
-
-        // Draw face 1
-        for (uint8_t x = 0; x < CUBE_SIZE; ++x)
-        {
-            const int32_t char_col_offset = m_pos - x;
-
-            if ((char_col_offset >= 0) * (char_col_offset < (m_string.size()*CUBE_SIZE)))
-            {
-                const int32_t char_index = m_string[char_col_offset/8].toAscii();
-
-                for (uint8_t y = 0;y < CUBE_SIZE; ++y)
-                {
-                    const int32_t char_row_offset = (CUBE_SIZE - 1) - y;
-
-                    m_cube[x][y][0] = g_ascii_table[char_index][char_row_offset][char_col_offset % CUBE_SIZE];
-                }
-            }
-        }
+        // Draw in reverse order so that the corners are drawn properly.
+        // The corners will be overwritten when drawing each face.
+        // Face 0 (the first one) has the highest 'priority'
+        drawFace(3);
+        drawFace(2);
+        drawFace(1);
+        drawFace(0);
     }
 
     // Advance the string position
     m_pos += m_scrollrate;
 
-    if (m_pos > (m_string.size()*CUBE_SIZE + 24)) // +24 to give the text time to go around the whole cube
+    if (m_pos > (m_string.size()*CUBE_SIZE + 28)) // +28 to give the text time to go around the whole cube
     {
         m_pos = 0.0f;
     }
 
     send(port);
+}
+
+void TextScroll::drawFace(uint8_t face)
+{
+    for (uint8_t x = 0; x < CUBE_SIZE; ++x)
+    {
+        // Take m_pos into the calculation here to get the scrolling effect
+        // The face is added onto the end since the offset should increase by 1 each time the letter goes around a corner.
+        // This offset can be negative so that the higher numbered faces aren't drawn until after the earlier ones
+        const int32_t char_col_offset = ((m_pos - x) - (CUBE_SIZE*face)) + face;
+
+        if ((char_col_offset >= 0) * (char_col_offset < (m_string.size()*CUBE_SIZE)))
+        {
+            const int32_t char_index = m_string[char_col_offset/8].toAscii();
+
+            for (uint8_t y = 0;y < CUBE_SIZE; ++y)
+            {
+                const int32_t char_row_offset = (CUBE_SIZE - 1) - y;
+
+                // Lookup the pixel in the bitmap
+                const QRgb pixel = m_bitmap.pixel((char_index*8) + (char_col_offset % 8), char_row_offset);
+                const float f_pixel = (qGray(pixel) > 0) ? 0.0f : 1.0f; // Pixel data is inverted
+
+                switch (face)
+                {
+                case 0:
+                    m_cube[x][y][0] = f_pixel;
+                    break;
+                case 1:
+                    m_cube[(CUBE_SIZE - 1)][y][x] = f_pixel;
+                    break;
+                case 2:
+                    m_cube[(CUBE_SIZE - 1) - x][y][7] = f_pixel;
+                    break;
+                case 3:
+                    m_cube[0][y][(CUBE_SIZE - 1) - x] = f_pixel;
+                    break;
+                }
+            }
+        }
+    }
 }
 
 void TextScroll::set_speed(int speed)

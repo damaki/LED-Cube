@@ -5,6 +5,7 @@
 #include <QLineEdit>
 #include <QSlider>
 #include <QPushButton>
+#include <QPixmap>
 #include <boost/thread.hpp>
 
 namespace effects
@@ -26,6 +27,8 @@ private slots:
     void set_text();
 
 private:
+    void drawFace(uint8_t face);
+
     QString m_string;
     float m_pos;
     float m_scrollrate;
@@ -35,6 +38,8 @@ private:
     QSlider *m_pSlider_speed;
     QLineEdit *m_pEdit_text;
     QPushButton *m_pBtn_start;
+
+    QImage m_bitmap;
 };
 
 } // namespace effects

@@ -6,4 +6,7 @@
         <file>wave_effect_ctrl.ui</file>
         <file>text_scroll_effect_ctrl.ui</file>
     </qresource>
+    <qresource prefix="/fonts">
+        <file>font.pbm</file>
+    </qresource>
 </RCC>
