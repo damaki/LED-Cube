@@ -8,6 +8,7 @@
 #include "ball_effect.h"
 #include "wave_effect.h"
 #include "text_scroll_effect.h"
+#include "sphere_effect.h"
 
 MainWindow::MainWindow(boost::asio::io_service &io, QWidget *parent) :
     QMainWindow(parent),
@@ -38,6 +39,9 @@ MainWindow::MainWindow(boost::asio::io_service &io, QWidget *parent) :
     m_pList_effects->addItem(new effects::Ball());
     m_pList_effects->addItem(new effects::Wave());
     m_pList_effects->addItem(new effects::TextScroll());
+    m_pList_effects->addItem(new effects::Sphere());
+
+    m_pList_effects->sortItems();
 
     m_effect_driver.start();
 }

@@ -13,7 +13,8 @@ SOURCES += main.cpp \
     rain_effect.cpp \
     ball_effect.cpp \
     wave_effect.cpp \
-    text_scroll_effect.cpp
+    text_scroll_effect.cpp \
+    sphere_effect.cpp
 HEADERS += mainwindow.h \
     effect_base.h \
     test_effect.h \
@@ -21,13 +22,15 @@ HEADERS += mainwindow.h \
     rain_effect.h \
     ball_effect.h \
     wave_effect.h \
-    text_scroll_effect.h
+    text_scroll_effect.h \
+    sphere_effect.h
 FORMS += mainwindow.ui \
     test_effect_ctrl.ui \
     rain_effect_ctrl.ui \
     ball_effect_ctrl.ui \
     wave_effect_ctrl.ui \
-    text_scroll_effect_ctrl.ui
+    text_scroll_effect_ctrl.ui \
+    sphere_effect_ctrl.ui
 INCLUDEPATH += ../../../boost_1_46_1 \
     ../../../boost_1_46_1/boost
 LIBS += -L../../../boost_1_46_1/stage/lib \

@@ -8,11 +8,13 @@ INPUT(
 ./debug/ball_effect.o
 ./debug/wave_effect.o
 ./debug/text_scroll_effect.o
+./debug/sphere_effect.o
 ./debug/moc_mainwindow.o
 ./debug/moc_test_effect.o
 ./debug/moc_rain_effect.o
 ./debug/moc_ball_effect.o
 ./debug/moc_wave_effect.o
 ./debug/moc_text_scroll_effect.o
+./debug/moc_sphere_effect.o
 ./debug/qrc_resources.o
 );
